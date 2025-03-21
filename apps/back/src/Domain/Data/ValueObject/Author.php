@@ -9,8 +9,9 @@ final class Author implements \Stringable
     public function __construct(
         public string $firstName,
         public string $lastName,
-        public string $organization
-    ) {}
+        public string $organization,
+    ) {
+    }
 
     public function __toString(): string
     {

@@ -12,7 +12,8 @@ final readonly class Model
 {
     public function __construct(
         private Courses $courses,
-    ) {}
+    ) {
+    }
 
     public function __invoke(Input $input): Output
     {

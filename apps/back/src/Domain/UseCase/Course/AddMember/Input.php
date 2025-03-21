@@ -6,5 +6,7 @@ namespace App\Domain\UseCase\Course\AddMember;
 
 final readonly class Input
 {
-    public function __construct(public string $memberId, public string $courseId) {}
+    public function __construct(public string $memberId, public string $courseId)
+    {
+    }
 }

@@ -9,7 +9,9 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 final readonly class MessageBus implements Application\MessageBus
 {
-    public function __construct(private MessageBusInterface $messageBus) {}
+    public function __construct(private MessageBusInterface $messageBus)
+    {
+    }
 
     public function transactional(object $message): object
     {
