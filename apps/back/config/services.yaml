@@ -1,0 +1,21 @@
+---
+parameters:
+
+services:
+    _defaults:
+        autowire: true 
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/Kernel.php'
+
+    App\Application\HTTP\Controller\:
+        resource: '../src/Application/HTTP/Controller'
+        tags: ['controller.service_arguments']
+
+    App\Domain\UseCase\:
+        resource: '%kernel.project_dir%/src/Domain/UseCase/**/Model.php'
+        tags:
+        - 'messenger.message_handler'

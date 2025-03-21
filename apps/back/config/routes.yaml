@@ -1,0 +1,5 @@
+controllers:
+    resource:
+        path: ../src/Application/HTTP/Controller/
+        namespace: App\Application\HTTP\Controller
+    type: attribute

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du Cours{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">{{ course.getName() }}</h1>
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Informations du Cours</h2>
+                <p><strong>Description :</strong> {{ course.getDescription() }}</p>
+                <p><strong>Durée :</strong> {{ course.getDuration() }} heures</p>
+                <p><strong>Auteur :</strong> {{ course.getAuthor().firstName }} {{ course.getAuthor().lastName }} ({{ course.getAuthor().organization }})</p>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h3>Membres inscrits :</h3>
+            {% if members is empty %}
+                <p class="text-muted">Aucun membre inscrit.</p>
+            {% else %}
+                <ul class="list-group">
+                    {% for member in members %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ member.getName() }}
+                            <form method="DELETE" action="{{ path('remove_member', {'courseId': course.getId(), 'memberId': member.getId()}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce membre ?');">
+                                <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <div class="mt-4">
+            <h3>Ajouter un membre :</h3>
+            <form method="post" action="{{ path('add_member', {'courseId': course.getId(), 'memberId': ''}) }}">
+                <div class="mb-3">  
+                    <label for="member" class="form-label">Sélectionner un membre :</label>
+                    <select name="memberId" id="member" class="form-control" required>
+                        {% for member in availableMembers %}
+                            <option value="{{ member.id }}">{{ member.getName() }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

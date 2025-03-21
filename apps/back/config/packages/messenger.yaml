@@ -1,0 +1,9 @@
+---
+framework:
+  messenger:
+    default_bus: transactional
+    buses:
+      transactional:
+        default_middleware: true
+        middleware:
+          - doctrine_transaction
