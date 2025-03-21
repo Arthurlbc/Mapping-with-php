@@ -33,7 +33,7 @@ final readonly class Courses implements Domain\Data\Collection\Courses
         }
     }
 
-    public function find(string $id): Domain\Data\Model\Course
+    public function find(string $id): ?Domain\Data\Model\Course
     {
         return $this->repository->find($id);
     }

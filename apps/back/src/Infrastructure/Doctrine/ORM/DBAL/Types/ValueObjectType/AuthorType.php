@@ -11,7 +11,7 @@ use App\Infrastructure\Doctrine\ORM\DBAL\Types\ValueObjectType;
 /**
  * @template ValueObject of object
  *
- * @extends ValueObjectType<Domain\Data\ValueObject\Money, string>
+ * @extends ValueObjectType<Domain\Data\ValueObject\Author, string>
  */
 final class AuthorType extends ValueObjectType
 {
@@ -24,10 +24,6 @@ final class AuthorType extends ValueObjectType
 
     public function normalize(mixed $author): string
     {
-        if (!$author instanceof Author) {
-            throw new \InvalidArgumentException('It should be an instance of Author.');
-        }
-
         $data = json_encode([
             'firstName' => $author->firstName,
             'lastName' => $author->lastName,

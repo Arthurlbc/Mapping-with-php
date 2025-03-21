@@ -16,14 +16,14 @@ interface Members
     public function findAll(): array;
 
     /**
-     * @param array<string> $ids
+     * @param array<string> $memberIds
      *
      * @return array<Member>
      */
     public function findMembers(array $memberIds): array;
 
     /**
-     * @param array<string> $ids
+     * @param array<string> $memberIds
      *
      * @return array<Member>
      */

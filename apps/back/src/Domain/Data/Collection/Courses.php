@@ -10,7 +10,7 @@ interface Courses
 {
     public function add(Course $course): void;
 
-    public function find(string $id): Course;
+    public function find(string $id): ?Course;
 
     /**
      * @return array<Course>

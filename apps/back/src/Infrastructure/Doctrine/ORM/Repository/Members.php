@@ -35,26 +35,26 @@ final readonly class Members implements Domain\Data\Collection\Members
         return $this->repository->findAll();
     }
 
-    public function findMembers(array $ids): array
+    public function findMembers(array $memberIds): array
     {
         /**
          * @var array<Domain\Data\Model\Member>
          */
         return $this->repository->createQueryBuilder('members')
-            ->where('members.id IN (:ids)')
-            ->setParameter('ids', $ids)
+            ->where('members.id IN (:memberIds)')
+            ->setParameter('memberIds', $memberIds)
             ->getQuery()
             ->getResult();
     }
 
-    public function findNonMembers(array $ids): array
+    public function findNonMembers(array $memberIds): array
     {
         /**
          * @var array<Domain\Data\Model\Member>
          */
         return $this->repository->createQueryBuilder('members')
-            ->where('members.id NOT IN (:ids)')
-            ->setParameter('ids', $ids)
+            ->where('members.id NOT IN (:memberIds)')
+            ->setParameter('memberIds', $memberIds)
             ->getQuery()
             ->getResult();
     }
