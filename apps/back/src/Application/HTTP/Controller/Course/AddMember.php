@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 final class AddMember extends AbstractController
 {
     public function __construct(
-        private MessageBus $messageBus 
+
     ) {}
 
     #[Route('/course/{courseId}/members/add', methods: ['POST'], name: 'add_member')]
