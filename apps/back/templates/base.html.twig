@@ -12,6 +12,9 @@
         {% endblock %}
     </head>
     <body>
+        <a href="{{ path('course_index') }}" class="position-absolute top-0 start-0 m-3">
+            <img src="{{ asset('images/edgar.jpg') }}" alt="Retour aux cours" width="150">
+        </a>
         {% block body %}{% endblock %}
     </body>
 </html>
