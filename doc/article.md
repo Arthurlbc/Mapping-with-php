@@ -1,4 +1,5 @@
 # Mapping Doctrine avec PHP
+![PHP_Doctrine](../apps/back/public/images/logos_php_dotrine.png)
 
 Développeur chez **KnpLabs**, j’aimerais aujourd’hui vous parler de **mapping**. Cet article fait suite à un projet en PHP/Symfony où nous avons choisi **Doctrine** comme ORM (Object Relational Mapper).
 
