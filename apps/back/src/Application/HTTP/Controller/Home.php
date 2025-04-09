@@ -18,7 +18,7 @@ final class Home extends AbstractController
     ) {
     }
 
-    #[Route('/', methods: ['GET'])]
+    #[Route('/', methods: ['GET'], name: 'course_index')]
     public function __invoke(): Response
     {
         $courses = $this->courses->findAll();
